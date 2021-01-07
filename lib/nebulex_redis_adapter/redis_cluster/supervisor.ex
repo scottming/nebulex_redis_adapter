@@ -18,7 +18,7 @@ defmodule NebulexRedisAdapter.RedisCluster.Supervisor do
   @impl true
   def init({name, opts}) do
     pool_size = Keyword.fetch!(opts, :pool_size)
-    [[host, port, _id] = _master | _replicas] = Keyword.fetch!(opts, :nodes)
+    [[host, port] = _master | _replicas] = Keyword.fetch!(opts, :nodes)
 
     conn_opts =
       opts
